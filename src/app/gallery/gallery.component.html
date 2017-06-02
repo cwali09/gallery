@@ -1,0 +1,15 @@
+<h2>{{title}}</h2>
+<div class="row">
+  <!--goback to 58:20 to understand  CSS active class-->
+  <button class="btn btn-lg btn-info" [class.active]="filterBy=='all'" (click)="filterBy='all'">All</button>
+  <button class="btn btn-lg btn-info" [class.active]="filterBy=='murcielago'" (click)="filterBy='murcielago'">Murcielago</button>
+  <button class="btn btn-lg btn-info" [class.active]="filterBy=='aventador'" (click)="filterBy='aventador'">Aventador</button>
+  <button class="btn btn-lg btn-info" [class.active]="filterBy=='huracan'" (click)="filterBy='huracan'">Huracan</button>
+</div>
+  <ul id="thumbnailsList">
+    <li *ngFor="let image of (visibleImages | imageFilter:filterBy)">
+      <a [routerLink] = "['/image', image.id]"> <!--1:17:00 -->
+      <img src="{{image.url}}" class="tn" width="200" height="160">
+    </a>
+    </li>
+  </ul>
